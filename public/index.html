@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earth Intelligence Lab</title>
+<meta name="description" content="Earth Intelligence Lab: geodesy, satellite Earth observation and machine learning.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #a3a3a3;
+    --line: #333;
+    /* Same font stack as the logo and the WordPress theme */
+    --font: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); line-height: 1.6; }
+  main, footer { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 4rem 16px 2rem; text-align: center; }
+  header img { width: min(560px, 100%); height: auto; }
+  h2 { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; text-align: center; margin: 3rem 0 1.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .tile { border: 1px solid var(--line); border-radius: 8px; padding: 2rem 1.5rem; text-align: center; }
+  .avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem; border: 1px dashed var(--muted); display: grid; place-items: center; color: var(--muted); font-size: 2.5rem; }
+  .tile h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
+  .tile p { margin: 0; color: var(--muted); }
+  a { color: var(--fg); }
+  a:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+  .contact { margin: 4rem 0 3rem; }
+  .contact a { font-size: 1.25rem; font-weight: 600; }
+  .small { text-align: center; color: var(--muted); font-size: 0.85rem; padding-bottom: 2rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1 style="margin:0"><img src="/logo.png" width="4063" height="2020" alt="Earth Intelligence Lab"></h1>
+</header>
+
+<main>
+  <h2>Team</h2>
+  <div class="grid">
+    <article class="tile">
+      <div class="avatar" aria-hidden="true">?</div>
+      <h3>Team member</h3>
+      <p>Role</p>
+    </article>
+    <article class="tile">
+      <div class="avatar" aria-hidden="true">?</div>
+      <h3>Team member</h3>
+      <p>Role</p>
+    </article>
+    <article class="tile">
+      <div class="avatar" aria-hidden="true">+</div>
+      <h3>Join us</h3>
+      <p>Interested in working with us? <a href="mailto:team@earth-int.com?subject=Joining%20the%20team">Get in touch</a>.</p>
+    </article>
+  </div>
+
+  <section class="tile contact" aria-labelledby="contact">
+    <h2 id="contact" style="margin-top:0">Contact</h2>
+    <a href="mailto:team@earth-int.com">team@earth-int.com</a>
+  </section>
+</main>
+
+<footer>
+  <p class="small">&copy; 2026 Earth Intelligence Lab</p>
+</footer>
+</body>
+</html>
