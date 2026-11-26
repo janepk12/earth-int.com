@@ -21,5 +21,5 @@ Free-plan limits that matter here: 20,000 files and 25 MiB per file, 500 builds 
 
 ## Editing
 
-- Team members: edit the tiles in `public/index.html` (name in `<h3>`, role in `<p>`). For a photo, add a square JPEG to `public/` and replace the `<div class="avatar">…</div>` with `<img class="avatar" src="/name.jpg" alt="Name">`.
-- Logo assets come from `website/content/media/` (the old WordPress repo, not part of this repo).
+- Team members: edit the tiles in `public/index.html` (name in `<h3>`, role in `<p>`). For a photo, add a square JPEG to `public/` and change that tile's `src="/placeholder.svg"` to `src="/name.jpg"` and the `alt` to the person's name.
+- "What we do" text and interest tags: the `about` section in `public/index.html`.

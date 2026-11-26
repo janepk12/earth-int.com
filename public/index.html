@@ -24,6 +24,11 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
   .tile { border: 1px solid var(--line); border-radius: 8px; padding: 2rem 1.5rem; text-align: center; }
   .avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem; border: 1px dashed var(--muted); display: grid; place-items: center; color: var(--muted); font-size: 2.5rem; }
+  img.avatar { display: block; object-fit: cover; border: 0; }
+  .about { max-width: 720px; margin: 0 auto; text-align: center; }
+  .about p { color: var(--muted); font-size: 1.1rem; }
+  .about ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .about li { border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.9rem; font-size: 0.9rem; }
   .tile h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
   .tile p { margin: 0; color: var(--muted); }
   a { color: var(--fg); }
@@ -39,15 +44,30 @@
 </header>
 
 <main>
+  <section class="about" aria-labelledby="about">
+    <h2 id="about">What we do</h2>
+    <p>We study the Earth as a changing system. Using geodetic measurements, satellite Earth observation and machine learning, we measure how land, ice, water and cities move and change, and we turn those measurements into knowledge that planners, authorities and other researchers can act on.</p>
+    <h2>What we are interested in</h2>
+    <ul>
+      <li>Geodesy and positioning</li>
+      <li>Satellite Earth observation</li>
+      <li>Machine learning for geodata</li>
+      <li>Land subsidence and deformation</li>
+      <li>Ice, water and sea level</li>
+      <li>Changing cities</li>
+    </ul>
+  </section>
+
   <h2>Team</h2>
   <div class="grid">
     <article class="tile">
-      <div class="avatar" aria-hidden="true">?</div>
+      <!-- Replace with a square photo, e.g. src="/jane.jpg" alt="Jane Doe" -->
+      <img class="avatar" src="/placeholder.svg" width="120" height="120" alt="Photo coming soon">
       <h3>Team member</h3>
       <p>Role</p>
     </article>
     <article class="tile">
-      <div class="avatar" aria-hidden="true">?</div>
+      <img class="avatar" src="/placeholder.svg" width="120" height="120" alt="Photo coming soon">
       <h3>Team member</h3>
       <p>Role</p>
     </article>
