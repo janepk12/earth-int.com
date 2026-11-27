@@ -29,6 +29,28 @@
   .about p { color: var(--muted); font-size: 1.1rem; }
   .about ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
   .about li { border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.9rem; font-size: 0.9rem; }
+  /* Interests converge into Earth Intelligence: 4 equal columns so the SVG lines (at 12.5/37.5/62.5/87.5%) hit each pill */
+  .flow ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0; }
+  .flow li { border-radius: 12px; display: grid; place-items: center; padding: 0.6rem 0.5rem; line-height: 1.3; background: #0a0a0a;
+             border-color: color-mix(in srgb, var(--c) 40%, transparent);
+             box-shadow: 0 0 18px color-mix(in srgb, var(--c) 18%, transparent), inset 0 0 14px color-mix(in srgb, var(--c) 8%, transparent); }
+  .flow svg { display: block; width: 100%; height: 90px; overflow: visible; }
+  .pulse path { stroke-dasharray: 10 90; stroke-dashoffset: 100; animation: flow 2.8s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: 0; } }
+  .about .hub { width: 150px; height: 150px; margin: 0 auto; border-radius: 50%; display: grid; place-content: center; position: relative;
+         border: 1px solid var(--fg); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.8rem; line-height: 1.5;
+         color: var(--fg); background: radial-gradient(circle, #1c1c1c, #000 70%); animation: breathe 2.8s ease-in-out infinite alternate; }
+  @keyframes breathe { from { box-shadow: 0 0 24px rgba(255,255,255,.1); } to { box-shadow: 0 0 56px rgba(255,255,255,.3); } }
+  .about .out { --c: #fbbf24; display: block; width: max-content; max-width: 100%; margin: 0 auto; padding: 0.8rem 1.8rem; border-radius: 12px;
+         border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+         font-size: 0.8rem; color: var(--fg); background: #0a0a0a; animation: glow 2.8s ease-in-out infinite alternate; }
+  @keyframes glow { from { box-shadow: 0 0 10px color-mix(in srgb, var(--c) 10%, transparent); } to { box-shadow: 0 0 34px color-mix(in srgb, var(--c) 35%, transparent); } }
+  .soon { margin: 0.5rem 0 0; font-size: 0.95rem; color: var(--muted); }
+  .soon strong { display: block; color: var(--fg); letter-spacing: 0.2em; }
+  .hub::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 1px solid var(--line); animation: ring 2.8s ease-out infinite; }
+  @keyframes ring { from { transform: scale(.9); opacity: 1; } to { transform: scale(1.25); opacity: 0; } }
+  @media (max-width: 560px) { .flow li { font-size: 0.75rem; } }
+  @media (prefers-reduced-motion: reduce) { .pulse, .hub::before { display: none; } .about .hub, .about .out { animation: none; } }
   .tile h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
   .tile p { margin: 0; color: var(--muted); }
   a { color: var(--fg); }
@@ -41,35 +63,62 @@
 <body>
 <header>
   <h1 style="margin:0"><img src="/logo.png" width="4063" height="2020" alt="Earth Intelligence Lab"></h1>
+  <p class="soon"><strong>earthintelligence.io</strong>Website coming soon</p>
 </header>
 
 <main>
   <section class="about" aria-labelledby="about">
     <h2 id="about">What we do</h2>
-    <p>We study the Earth as a changing system. Using geodetic measurements, satellite Earth observation and machine learning, we measure how land, ice, water and cities move and change, and we turn those measurements into knowledge that planners, authorities and other researchers can act on.</p>
+    <p>We study the Earth as a complex and dynamic system. Using satellite-based Remote Sensing and Earth Observation techniques, 
+      combined with AI capabilities to better understand and predict changes in land, forest, water and ice. Our goal is to turn measurements
+      into knowledge that industry, authorities and the scientific community can reliably act on.</p>
     <h2>What we are interested in</h2>
-    <ul>
-      <li>Geodesy and positioning</li>
-      <li>Satellite Earth observation</li>
-      <li>Machine learning for geodata</li>
-      <li>Land subsidence and deformation</li>
-      <li>Ice, water and sea level</li>
-      <li>Changing cities</li>
-    </ul>
+    <div class="flow">
+      <!-- Each hue is used twice: on the pill (--c) and on its path stroke below -->
+      <ul>
+        <li style="--c:#a78bfa">Microwave Remote Sensing</li>
+        <li style="--c:#38bdf8">Satellite Earth Observation</li>
+        <li style="--c:#f472b6">Agentic AI</li>
+        <li style="--c:#4ade80">Monitoring of Forest, Land, Agriculture</li>
+      </ul>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke-opacity=".3" vector-effect="non-scaling-stroke">
+          <path stroke="#a78bfa" d="M12.5 0C12.5 55 50 45 50 100"/>
+          <path stroke="#38bdf8" d="M37.5 0C37.5 55 50 45 50 100"/>
+          <path stroke="#f472b6" d="M62.5 0C62.5 55 50 45 50 100"/>
+          <path stroke="#4ade80" d="M87.5 0C87.5 55 50 45 50 100"/>
+        </g>
+        <g class="pulse" fill="none" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke">
+          <path stroke="#a78bfa" pathLength="100" d="M12.5 0C12.5 55 50 45 50 100"/>
+          <path stroke="#38bdf8" pathLength="100" d="M37.5 0C37.5 55 50 45 50 100" style="animation-delay:-.7s"/>
+          <path stroke="#f472b6" pathLength="100" d="M62.5 0C62.5 55 50 45 50 100" style="animation-delay:-1.4s"/>
+          <path stroke="#4ade80" pathLength="100" d="M87.5 0C87.5 55 50 45 50 100" style="animation-delay:-2.1s"/>
+        </g>
+      </svg>
+      <p class="hub">Earth<br>Intelligence</p>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="height:70px">
+        <path d="M50 0V100" fill="none" stroke="#fbbf24" stroke-opacity=".3" vector-effect="non-scaling-stroke"/>
+        <g class="pulse" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke">
+          <path pathLength="100" d="M50 0V100"/>
+          <path pathLength="100" d="M50 0V100" style="animation-delay:-1.4s"/>
+        </g>
+      </svg>
+      <p class="out">Actionable products</p>
+    </div>
   </section>
 
   <h2>Team</h2>
   <div class="grid">
     <article class="tile">
       <!-- Replace with a square photo, e.g. src="/jane.jpg" alt="Jane Doe" -->
-      <img class="avatar" src="/placeholder.svg" width="120" height="120" alt="Photo coming soon">
-      <h3>Team member</h3>
-      <p>Role</p>
+      <img class="avatar" src="/milada.png" width="120" height="120" alt="Milad Asgarimehr">
+      <h3>Milad Asgarimehr</h3>
+      <p>Team Leader, Associate Professor</p>
     </article>
     <article class="tile">
-      <img class="avatar" src="/placeholder.svg" width="120" height="120" alt="Photo coming soon">
-      <h3>Team member</h3>
-      <p>Role</p>
+      <img class="avatar" src="/luke-avatar.jpg" width="120" height="120" alt="Luke Joshua Pugin">
+      <h3>Luke Joshua Pugin</h3>
+      <p>Team member, PhD fellow</p>
     </article>
     <article class="tile">
       <div class="avatar" aria-hidden="true">+</div>
